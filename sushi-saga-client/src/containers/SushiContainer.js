@@ -5,7 +5,6 @@ import Sushi from '../components/Sushi'
 
 
 const SushiContainer = (props) => {
-  // console.log(props);
   return (
     <Fragment>
       <div className="belt">

@@ -3,16 +3,14 @@ import React, { Component, Fragment } from 'react'
 class Sushi extends Component {
 
   render(){
-    // console.log('sushi component:', this.props);
     return (
       <div className="sushi">
-        <div className="plate"
-             onClick={() => this.props.handleEatClick(this.props.sushi)}>
+        <div className="plate">
           {
             this.props.sushi.eaten ?
               null
             :
-              <img src={this.props.sushi.img_url} width="100%" />
+              <img src={this.props.sushi.img_url} width="100%" onClick={() => this.props.handleEatClick(this.props.sushi)}/>
           }
         </div>
         <h4 className="sushi-details">
