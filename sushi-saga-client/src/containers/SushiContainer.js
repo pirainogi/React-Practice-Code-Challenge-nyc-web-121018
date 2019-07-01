@@ -4,15 +4,12 @@ import Sushi from '../components/Sushi'
 
 
 
-const SushiContainer = (props) => {
+const SushiContainer = () => {
   return (
     <Fragment>
       <div className="belt">
-        {props.sushis.map(sushi => {
-          return <Sushi sushi={sushi} key={sushi.id} chargeCustomer={props.chargeCustomer} handleEatClick={props.handleEatClick}/>
-        })
-        }
-        <MoreButton handleMoreSushiClick={props.handleMoreSushiClick}/>
+        {/* render your sushis*/}
+        <MoreButton />
       </div>
     </Fragment>
   )
