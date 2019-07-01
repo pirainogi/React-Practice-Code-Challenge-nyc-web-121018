@@ -10,10 +10,12 @@ class Sushi extends Component {
   }
 
   handleEatClick = () => {
-    console.log('click');
+    // console.log('click');
     this.setState({
       eaten: true,
     })
+    this.props.chargeCustomer(this.props.sushi.price)
+    // console.log('event', this.props.sushi);
   }
 
   render(){
@@ -21,7 +23,7 @@ class Sushi extends Component {
     return (
       <div className="sushi">
         <div className="plate"
-             onClick={() => this.handleEatClick()}>
+             onClick={(e) => this.handleEatClick()}>
           {
             this.state.eaten ?
               null

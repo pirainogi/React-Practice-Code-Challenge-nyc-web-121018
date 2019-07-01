@@ -13,6 +13,7 @@ class App extends Component {
       sushis: [],
       sushiIndex: 0,
       currentSushis: [],
+      wallet: 100,
     }
   }
 
@@ -24,6 +25,17 @@ class App extends Component {
       currentSushis: newSushis,
       sushiIndex: this.state.sushiIndex + 4
     })
+  }
+
+  chargeCustomer = (cost) => {
+    if(this.state.wallet - cost >= 0){
+      this.setState({
+        wallet: this.state.wallet - cost
+      })
+    } else {
+      alert("You don't have enough money! Buy a cheaper sushi!")
+    }
+
   }
 
 
@@ -48,8 +60,8 @@ class App extends Component {
     // console.log('sushi index:', this.state.sushiIndex, 'current sushis:', this.state.currentSushis);
     return (
       <div className="app">
-        <SushiContainer  sushis={this.state.currentSushis} handleMoreSushiClick={this.handleMoreSushiClick}/>
-        <Table />
+        <SushiContainer  sushis={this.state.currentSushis} handleMoreSushiClick={this.handleMoreSushiClick} chargeCustomer={this.chargeCustomer}/>
+        <Table wallet={this.state.wallet}/>
       </div>
     );
   }
