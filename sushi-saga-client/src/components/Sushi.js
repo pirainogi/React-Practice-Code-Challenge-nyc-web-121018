@@ -9,12 +9,19 @@ class Sushi extends Component {
     }
   }
 
+  handleEatClick = () => {
+    console.log('click');
+    this.setState({
+      eaten: true,
+    })
+  }
+
   render(){
     console.log('sushi component:', this.props);
     return (
       <div className="sushi">
         <div className="plate"
-             onClick={/* Give me a callback! */ null}>
+             onClick={() => this.handleEatClick()}>
           {
             this.state.eaten ?
               null
